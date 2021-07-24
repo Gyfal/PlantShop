@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+* {
+  /* box-sizing: border-box; */
+}
+
+[v-cloak] {
+  display: none;
+}
+
+body {
+  font-family: Inter, Roboto, Oxygen, Fira Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  background: #333333;
+  /* transform: scale(0.5);
+  position: absolute;
+  left: -43%;
+  top: -35%; */
+}
+
+.logo {
+  padding: 24px 0px 0px 25px;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-family: Didact Gothic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 46px;
+  color: #FFFFFF;
+  padding-left: 25px;
+}
+
+.selector {
+  /* padding: 250px 0px 0px 210px; */
+  padding-top: 125px;
+  text-align: center;
+  /* display: inline-flex; */
+}
+
+img.lastPickture {
+  padding-left: 70px;
+}
+
+.element {
+  position: relative;
+  width: 180px;
+  height: 280px;
+  background: linear-gradient(180deg, #797979 0%, #545454 100%);
+  border-radius: 20px;
+  /* padding-left: 105px; */
+  /* margin-left: 105px; */
+  transition: 0.5s;
+  border-width: 0px;
+}
+
+.element:target {
+  width: 5000px;
+}
+
+.element:hover {
+  box-shadow: 0px 4px 30px 11px #FFFFFF;
+  transition: .3s;
+}
+
+.element:focus {
+  box-shadow: 0px 4px 30px 11px #FFE298;
+  transition: .3s;
+}
+
+.element:not(:first-child) {
+  margin-left: 105px;
+}
+
+.element svg {
+  padding-left: 59px;
+  padding-top: 45px;
+}
+
+img {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, 10px);
+  /* padding-left: 46px; */
+  /* padding-top: 0px; */
+}
+
+img:not(:first-child) {
+  position: absolute;
+  padding-left: 46px;
+  padding-top: 70px;
+}
+
+
+svg.bereza {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+  mix-blend-mode: normal;
+}
+
+
+.msg {
+  font-family: Didact Gothic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 46px;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  bottom: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+div#app {
+  /* transform: scale(0.5); */
+  /* left: -43%;
+  top: -35%; */
+  /* position: absolute; */
+}
+
+button.element.active div#clickbait {
+  position: absolute;
+  /* width: 209px; */
+  padding: 18px 35px;
+  /* height: 109px; */
+  z-index: 2;
+  background: linear-gradient(180deg, #797979 0%, #545454 100%);
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  border-radius: 10px;
+  bottom: -25px;
+  left: -1px;
+  border-width: 0px;
+  width: -webkit-fill-available;
+  /* transform: translate(-50%); */
+
+
+  font-family: Didact Gothic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+
+
+  color: #FFFFFF;
+}
+
+button.element.done div#clickbait {
+  display: none;
+}
+
+
+button#btn\ main {
+  position: relative;
+  width: 360px;
+  height: 560px;
+  background: linear-gradient(180deg, #797979 0%, #545454 100%);
+  border-radius: 20px;
+  /* padding-left: 105px; */
+  margin-left: 210px;
+  transition: 0.5s;
+}
+
+
+button.element.blocked {
+  background: rgba(84, 84, 84, 0.1);
+  /* box-shadow: 0px 4px 30px 11px rgba(0, 0, 0, 0.25); */
+  border-radius: 20px;
+  opacity: 0.25;
+}
+
+.warning {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -39%);
+  margin-left: -8px;
+  width: -webkit-fill-available;
+  /* padding: 44px 0px;; */
+  background: linear-gradient(180deg, #797979 0%, #545454 100%);
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 25%);
+  font-family: Didact Gothic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 47px;
+  color: #FFFFFF;
+  z-index: 14;
+}
+
+
+
+.MODAL {
+  position: absolute;
+  left: 50%;
+  top: 131%;
+  font-family: Didact Gothic;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 70px;
+  line-height: 92px;
+  color: #FFFFFF;
+}
+
+img {
+  width: 117px;
+  height: 178px;
+}
+
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+img.modal_cong {
+  top: 108px;
+  width: 269px;
+}
+
+.modal-container {
+  width: 300px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #373737;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  /* transition: all 0.3s ease; */
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-header h3 {
+  /* /* margin-top: 0; */
+  text-align: center;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-default-button {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  border-width: 0px;
+  width: 100px;
+  height: 70px;
+  background: linear-gradient(180deg, #F3F3F3 0%, #B1B1B1 100%);
+  box-shadow: -4px 0px 4px rgb(0 0 0 / 25%);
+  border-radius: 20px 20px 0px 0px;
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  /* -webkit-transform: scale(1.1);
+  transform: scale(1.1); */
+  opacity: 0;
+}
+
+
+.close {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #fff;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}

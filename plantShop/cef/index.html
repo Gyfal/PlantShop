@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bomb Planet</title>
+  <link rel="stylesheet" href="theme.css" />
+  <script type="text/x-template" id="modal-template">
+    <transition name="modal">
+      <div class="modal-mask">
+        <div class="modal-wrapper">
+          <div class="modal-container">
+
+            <div class="modal-header">
+              <img src="img/congr.png" class = 'modal_cong'>
+              <slot name="header">
+                
+              </slot>
+            </div>
+
+            <!-- <div class="modal-body">
+              <slot name="body">
+               
+              </slot>
+            </div> -->
+
+            <div class="modal-footer">
+              <slot name="footer">
+                <br>
+                <button class="modal-default-button" @click="$emit('close')">
+                  Вернуться к покупкам
+                </button>
+              </slot>
+            </div>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </script>
+</head>
+
+<body>
+  
+  <div class="container" id="app" v-cloak>
+    <span class="close" @click="closed"></span>
+    <div class="logo">
+      <svg width="42" height="42" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg" class="cvetok">
+        <ellipse cx="42" cy="18.5" rx="12" ry="18.5" fill="#FFE298" />
+        <ellipse cx="42" cy="65.5" rx="12" ry="18.5" fill="#FFE298" />
+        <ellipse cx="18.5" cy="42" rx="12" ry="18.5" transform="rotate(-90 18.5 42)" fill="#FFE298" />
+        <ellipse cx="65.5" cy="42" rx="12" ry="18.5" transform="rotate(-90 65.5 42)" fill="#FFE298" />
+        <ellipse cx="21.5989" cy="21.5989" rx="11.4545" ry="19.0909" transform="rotate(-45 21.5989 21.5989)"
+          fill="#FFE298" />
+        <ellipse rx="11.4545" ry="19.0909" transform="matrix(0.707107 0.707107 0.707107 -0.707107 21.5989 59.7808)"
+          fill="#FFE298" />
+        <ellipse cx="59.7808" cy="59.7807" rx="11.4545" ry="19.0909" transform="rotate(-45 59.7808 59.7807)"
+          fill="#FFE298" />
+        <ellipse rx="11.4545" ry="19.0909" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 59.781 21.5989)"
+          fill="#FFE298" />
+        <circle cx="42" cy="42" r="12" fill="white" />
+      </svg>
+      <div class="title">PlantShop</div>
+    </div>
+
+    
+
+    <modal v-if="showModal" @close="showModal = false">
+      <h3 v-if="showModal" slot="header">Поздравляем с покупкой!</h3>
+    </modal>
+
+    <div v-if="!main" class="selector">
+      <button class="element" :disabled="step.status" @blur="onBlur" @mouseover="mouseOver" @focus="onFocus"
+        v-for="(step, idx) in steps" :class="{
+          active: idx === activeIndex,
+          done: idx < activeIndex,
+          blocked : step.status
+        }" @click="setActive(idx)">
+        <img :src="picture[idx].img">
+        <div class="warning" v-show="step.status">Уже куплено</div>
+        <div class="msg">{{step.title}}<br>{{step.text}}$</div>
+        <div v-if="idx === activeIndex && money >= step.text" id="clickbait" @click="buy">Купить</div>
+        <div v-else-if="idx === activeIndex && money < step.text" id="clickbait">Недостаточно средств</div>
+      </button>
+    </div>
+  </div>
+
+  <script src="vueJS.js"></script>
+  <script src="vue.js"></script>
+  <!-- <script src="main.js"></script> -->
+
+</body>
+
+</html>

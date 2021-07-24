@@ -1,0 +1,19 @@
+<meta>
+  <script src="xml-s.lua" type="server"/>
+  <script src="main-c.lua" type="client"/>
+  <script src="main-s.lua" type="server"/>
+  <script src="render-c.lua" type="client"/>
+  <script src="shared-c.lua" type="shared"/>
+  <script src="CEF-c.lua" type="client"/>
+
+    <file src="cef/index.html" />
+    <file src="cef/theme.css" />
+    <file src="cef/vueJS.js" />
+    <file src="cef/vue.js" />
+
+
+    <file src="cef/img/Bereza.png" />
+    <file src="cef/img/Cactus.png" />
+    <file src="cef/img/elka.png" />
+    <file src="cef/img/congr.png" />
+</meta>
