@@ -1,7 +1,0 @@
-<meta>
-  <script src="s_xml.lua" type="server"/>
-  <script src="c_main.lua" type="client"/>
-  <script src="s_server.lua" type="server"/>
-  <script src="c_render.lua" type="client"/>
-  <script src="c_shared.lua" type="shared"/>
-</meta>
