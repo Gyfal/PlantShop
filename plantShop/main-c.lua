@@ -9,7 +9,7 @@ PlayerData = {
 
 local tPlantInStream = {}
 
-
+-- Посадка растения
 addEvent( "plantShop:startPlant", true )
 addEventHandler( "plantShop:startPlant", localPlayer, function(data)
     PlayerData['time'] = getTickCount();
@@ -38,6 +38,7 @@ addEventHandler( "plantShop:startPlant", localPlayer, function(data)
 
 end)
 
+-- Сбор растения
 addEvent( "plantShop:harvesCrop", true )
 addEventHandler( "plantShop:harvesCrop", localPlayer, function(data)
     local startTime = getTickCount()
@@ -64,7 +65,7 @@ addEventHandler( "plantShop:harvesCrop", localPlayer, function(data)
 end)
 
 
-
+-- Обновление информации об растениях
 addEvent( "plantShop:refreshPlant", true )
 addEventHandler( "plantShop:refreshPlant", localPlayer,
      function(tbl, about)
@@ -75,6 +76,7 @@ addEventHandler( "plantShop:refreshPlant", localPlayer,
     end
 );
 
+-- Семена в наличии 
 function refreshSelector(info)
     PlayerData['select'] = 0;
     PlayerData['semena'] = info;
@@ -86,15 +88,9 @@ function refreshSelector(info)
     end
 end 
 
-addEventHandler( "onClientElementStreamIn", resourceRoot,
-    function ( )
-        if getElementType( source ) == "object"  then
-            
-        end 
-    end
-);
 
--- Посадка растения
+
+-- Посадка растения на кнопку E
 local function escapeMe (  key, keyState  )
     local tBetween = {minDist = -1; id = -1;}
     for k, v in pairs(tPlant) do
