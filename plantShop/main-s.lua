@@ -156,11 +156,8 @@ end
 
 -- Загрузка клумб, init ResourceStart
 function displayLoadedRes ( res )  
-   -- playerMarker = createMarker(2411, 600, 133, "cylinder", 5, 10, 244, 23, 200, root)
-    createMarker ( 2411, 600, 136 - 0.9, "cylinder", 1.5, 255, 255, 0, 170 )
-
-
-    --addEventHandler("onMarkerHit", playerMarker, handlePlayerMarker)
+    
+	
     -- Надеюсь я правильно понял насчет бд ^_^
     executeSQLQuery([[
         CREATE TABLE IF NOT EXISTS plant ("accID" INTEGER NOT NULL UNIQUE,
