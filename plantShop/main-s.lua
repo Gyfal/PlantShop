@@ -92,7 +92,16 @@ local function startRender(id, start, finishh)
 end 
 
 local function sendDataBase(user)
-    if getPlayerAccount(user) and getAccountID(getPlayerAccount(user)) then 
+    if getPlayerAccount(user) and getAccountID(getPlayerAccount(user)) then
+        
+       local seach = true; 
+       for k, v in pairs(tDataBase) do
+            if v['accID'] == getAccountID(getPlayerAccount(user)) then
+                v['crov'] = toJSON(PlayerData[user])
+                seach = true
+            end 
+       end
+       if not seach then table.insert(tDataBase, {accID = getAccountID(getPlayerAccount(user)), crov = toJSON(PlayerData[user])}) end
        executeSQLQuery("UPDATE plant SET crov = ? WHERE accID=?", toJSON(PlayerData[user]), getAccountID(getPlayerAccount(user)))
    end 
 end
@@ -184,7 +193,9 @@ addEventHandler ( "onResourceStart", resourceRoot, displayLoadedRes )
 
 local function playerData(text,account, client)
     local player = searchByDataBase(getAccountID(account))
+    print(player,client or source , PlayerData[client or source])
     if player then
+        print("О вас есть инфа", fromJSON(player))
         PlayerData[client or source] = fromJSON(player)
     else
         PlayerData[client or source] = fromJSON(jsStandart)
@@ -407,6 +418,7 @@ addEventHandler("plantShop:endPlant", resourceRoot,
                         sync_with_players();
                         return outputChatBox("[Server] У вас нема такого семечка!", client)
                     else
+                        print("Изымаем семеня")
                         PlayerData[client][data['plant']["semena"]] = false;
                         sendDataBase(client);
                         sync_client(client, PlayerData[client])
@@ -450,6 +462,9 @@ function (idSemya)
             if semena == k and v ~= true then
                 local newMoney = getPlayerMoney(client) - tPrice[semena];
                 setPlayerMoney(client, newMoney)
+
+                
+
                 PlayerData[client][k] = true; 
                 sendDataBase(client)
                 return triggerClientEvent(client, "plantShop:successfulBuy", client, PlayerData[client])
