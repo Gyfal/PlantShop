@@ -193,9 +193,7 @@ addEventHandler ( "onResourceStart", resourceRoot, displayLoadedRes )
 
 local function playerData(text,account, client)
     local player = searchByDataBase(getAccountID(account))
-    print(player,client or source , PlayerData[client or source])
     if player then
-        print("О вас есть инфа", fromJSON(player))
         PlayerData[client or source] = fromJSON(player)
     else
         PlayerData[client or source] = fromJSON(jsStandart)
@@ -418,7 +416,6 @@ addEventHandler("plantShop:endPlant", resourceRoot,
                         sync_with_players();
                         return outputChatBox("[Server] У вас нема такого семечка!", client)
                     else
-                        print("Изымаем семеня")
                         PlayerData[client][data['plant']["semena"]] = false;
                         sendDataBase(client);
                         sync_client(client, PlayerData[client])
